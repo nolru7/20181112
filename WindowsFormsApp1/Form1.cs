@@ -15,6 +15,28 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            Load += Form1_Load;
+
+
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Button btn = new Button();
+            btn.DialogResult = DialogResult.OK;
+            btn.Text = "확인";
+            btn.Size = new Size(100, 50);
+            btn.Location = new Point(30, 30);
+
+            Controls.Add(btn);
+            btn.Click += btn_click;
+        }
+
+
+        private void btn_click(object o, EventArgs a)
+        {
+            MessageBox.Show("확인하기!");
+        }
+
     }
 }
