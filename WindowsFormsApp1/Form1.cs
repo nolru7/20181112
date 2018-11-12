@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
                 btn = new Button();
 
                 btn.DialogResult = DialogResult.OK;
+                btn.Name = string.Format("btn_{0}", (i + 1));
                 btn.Text = string.Format("확인 :{0}", (i + 1));
                 btn.Size = new Size(100, 50);
                 btn.Location = new Point((100 * i) + 30, 30);
@@ -44,7 +45,17 @@ namespace WindowsFormsApp1
 
         private void btn_click(object o, EventArgs a) //object는 버튼정보를 받아올수 있다.
         {
+            //string names = "";
+            foreach(Control ct in Controls)
+            {
+                //names += ct.Name + "";
+                if(ct.Name != "btn_3") ct.BackColor = Color.Silver; //버튼하나만 색변경
+            }
+
+            //MessageBox.Show(names);
+
             btn = (Button)o; //button으로 형변환
+
             //MessageBox.Show(btn.Text);
             btn.BackColor = (btn.BackColor == Color.Green) ? btn.BackColor = Color.Silver : btn.BackColor = Color.Green;
             // 삼항연산자로 변경
